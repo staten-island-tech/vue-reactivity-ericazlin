@@ -30,13 +30,8 @@
       </div>
 
       <div class="cards">
-        <Card
-          v-for="destination in destinations"
-          :key="destination.title"
-          :title="destination.title"
-          :description="destination.description"
-          :image="destination.image"
-        />
+        <Card v-for="destination in destinations" :key="destination.title" :title="destination.title"
+          :description="destination.description" :image="destination.image" />
       </div>
     </div>
   </main>
