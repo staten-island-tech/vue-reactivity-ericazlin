@@ -30,8 +30,8 @@
       </div>
 
       <div class="cards">
-        <Card v-for="destination in destinations" :key="destination.title" :title="destination.title"
-          :description="destination.description" :image="destination.image" />
+        <Card v-for="products in products" :key="products.title" :title="products.title"
+          :description="products.description" :image="products.image" />
       </div>
     </div>
   </main>
@@ -40,48 +40,19 @@
 <script>
 import Button from "./components/Button.vue";
 import Card from "./components/Card.vue";
+import {products} from '../src/products';
 
 export default {
   data() {
     return {
       text: "ochen da",
       number: true,
-
       items: ["I", "am", "an", "array", "being", "iterated"],
-      loggedIn: false,
+loggedIn: false,
+products,
 
-      message: "",
-      poop: "poop",
-      destinations: [
-        {
-          title: "donuts",
-          description:
-            "$",
-          image:
-            "https://cdn.discordapp.com/attachments/829231612012527646/1054988265092026408/donuts.jpg",
-        },
-        {
-          title: "chips",
-          description:
-            "$",
-          image:
-            `https://cdn.discordapp.com/attachments/970059739318849597/1049201473617141872/chips.jpg`,
-        },
-        {
-          title: "minced meat",
-          description:
-            "$",
-          image:
-            "https://cdn.discordapp.com/attachments/970059739318849597/1049201474149822515/minced_meat.jpg",
-        },
-        {
-          title: "whole bread",
-          description:
-            "$",
-          image:
-            "https://cdn.discordapp.com/attachments/970059739318849597/1049201474380505128/whole_bread.jpg",
-        },
-      ],
+message: "",
+poop: "poop",
     };
   },
 
