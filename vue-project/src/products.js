@@ -70,7 +70,81 @@ export const products =
             image:
                 "https://cdn.discordapp.com/attachments/829231612012527646/1054988250458103918/bloxbull.jpg",
         },
+        {
+            title: "brake fluid",
+            description:
+                "$",
+            image:
+                "https://cdn.discordapp.com/attachments/829231612012527646/1054988250646851594/brake_fluid.jpg",
+        },
+        {
+            title: "bread buns",
+            description:
+                "$",
+            image:
+                "https://cdn.discordapp.com/attachments/829231612012527646/1054988250860748872/bread_buns.jpg",
+        },
+        {
+            title: "candy bar",
+            description:
+                "$",
+            image:
+                "https://cdn.discordapp.com/attachments/829231612012527646/1054988251049500703/candy_bars.jpg",
+        },
 
-//up to brake fluid
 
+
+
+
+        {
+            title: "canned soda",
+            description:
+                "$",
+            image:
+                "https://cdn.discordapp.com/attachments/829231612012527646/1054988251267608637/canned_soda.jpg",
+        },
+        {
+            title: "ice cream",
+            description:
+                "$",
+            image:
+                "https://cdn.discordapp.com/attachments/829231612012527646/1054988264525795428/homemade_fishfingies.jpg",
+        },
+        {
+            title: "chocolate bars",
+            description:
+                "$",
+            image:
+                "https://cdn.discordapp.com/attachments/829231612012527646/1054988264731328583/chocolate_bars.jpg",
+        },
+        {
+            title: "eggs",
+            description:
+                "$",
+            image:
+                "https://cdn.discordapp.com/attachments/829231612012527646/1054988265310142494/eggs.jpg",
+        },
+        {
+            title: "cucumber",
+            description:
+                "$",
+            image:
+                "https://cdn.discordapp.com/attachments/829231612012527646/1054988264932651018/cucumber.jpg",
+        },
+        {
+            title: "fishfingers",
+            description:
+                "$",
+            image:
+                "https://cdn.discordapp.com/attachments/829231612012527646/1054988265511465020/fishfingers.jpg",
+        },
+        {
+            title: "frozen sausages",
+            description:
+                "$",
+            image:
+                "https://cdn.discordapp.com/attachments/829231612012527646/1054988265687617596/frozen_sausages.jpg",
+        }, 
+
+        //up to frozen vegs
     ]

@@ -17,7 +17,7 @@
         </div>
 
         <div>
-          <input type="text" placeholder="im going down" v-model="message" />
+          <input type="text" placeholder="type smth here omg" v-model="message" />
           <p>{{ message }}</p>
         </div>
 
