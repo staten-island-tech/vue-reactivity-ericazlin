@@ -1,20 +1,26 @@
 <template>
   <main>
     <div class="container">
-      <div class="texts">
-        <div>
-          <h1>buy yo groceries here</h1>
-          <h1 v-if="number">{{ text }}</h1>
-
-          <ul>
-            <li v-for="item in items" :key="item">{{ item }}</li>
-          </ul>
+      <div class="products">
+        <div class="texts">
+          <div>
+            <h1>buy yo groceries here</h1>
+          </div>
         </div>
-      </div>
 
-      <div class="cards">
-        <Card v-for="products in products" :key="products.title" :title="products.title"
-          :description="products.description" :image="products.image" />
+        <div class="cards">
+          <Card
+            v-for="products in products"
+            :key="products.title"
+            :title="products.title"
+            :description="products.description"
+            :image="products.image"
+          />
+        </div>
+        
+      </div>
+      <div class="shoppingList">
+          <img class="shoppingPaper" src="../src/assets/shoppingList.png" alt="" />
       </div>
     </div>
   </main>
@@ -23,17 +29,12 @@
 <script>
 import Button from "./components/Button.vue";
 import Card from "./components/Card.vue";
-import {products} from '../src/products';
+import { products } from "../src/assets/products";
 
 export default {
   data() {
     return {
-   
-loggedIn: false,
-products,
-
-message: "",
-poop: "poop",
+      products,
     };
   },
 
@@ -41,31 +42,25 @@ poop: "poop",
     Button,
     Card,
   },
-
 };
 </script>
 
 <style>
-.container {
-  display: flex;
-  justify-content: space-around;
-  margin: auto;
-}
-
-.cards {
-  display: flex;
-  flex-direction: column;
-}
-
-.texts {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 40vw;
-}
-
-.texts input,
-button {
-  width: 30vw;
-}
+  .container {
+    display: flex;
+  }
+  .products {
+    width: 66vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .shoppingPaper {
+    width: 20vw;
+  }
 </style>

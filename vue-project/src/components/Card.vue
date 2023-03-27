@@ -27,12 +27,15 @@ export default {
   border: 1px black solid;
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 20vw;
+  height: auto;
   align-items: center;
   margin: 1rem;
 }
 
 .card img {
-  width: 600px;
+  width: 18vw;
+  height: 400px;
+  object-fit: contain;
 }
 </style>

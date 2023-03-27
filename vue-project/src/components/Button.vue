@@ -12,8 +12,6 @@ export default {
 
 <style scoped>
 button {
-  background-color: rgb(86, 110, 101);
-  width: 450px;
-  height: 300px;
+  color:unset
 }
 </style>

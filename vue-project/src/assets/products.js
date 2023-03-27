@@ -1,4 +1,4 @@
-export const products =
+const products =
 [
     {   title: "minced meat",
         image: "https://cdn.discordapp.com/attachments/970059739318849597/1049201474149822515/minced_meat.jpg",
@@ -525,3 +525,5 @@ export const products =
         baked: false,
     }, 
 ]
+
+export {products}
