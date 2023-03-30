@@ -2,7 +2,7 @@
   <div class="card">
     <h2>{{ title }}</h2>
     <img :src="getImage" alt="" />
-    <p>{{ description }}</p>
+    <p>{{ price }}</p>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   name: "Card",
   props: {
     title: String,
-    description: String,
+    price: Number,
     image: String,
   },
   computed: {
