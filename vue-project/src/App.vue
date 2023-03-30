@@ -4,7 +4,7 @@
       <div class="products">
         <div class="texts">
           <div>
-            <h1>buy yo groceries here</h1>
+            <h1>jeebee's gas station online pre-order</h1>
           </div>
         </div>
 
@@ -13,7 +13,7 @@
             v-for="products in products"
             :key="products.title"
             :title="products.title"
-            :description="products.description"
+            :price="products.price"
             :image="products.image"
           />
         </div>
