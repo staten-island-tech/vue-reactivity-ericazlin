@@ -9,26 +9,20 @@
         </div>
 
         <div class="cards">
-          <Card
-            v-for="product in products"
-            :key="product.title"
-            :title="product.title"
-            :price="product.price"
-            :image="product.image"
-            @add-product="addToShoppingList"
-          />
+          <Card v-for="product in products" :key="product.title" :title="product.title" :price="product.price"
+            :image="product.image" @add-product="addToShoppingList" />
         </div>
       </div>
       <div class="shoppingList">
 
         <div class="prices">
           <p class="productAndPrice" v-for="product in shoppingList" :key="product.title">
-          {{ product.title }} - ${{ product.price }}
+            {{ product.title }} - ${{ product.price }}
           </p>
-        </div> 
+        </div>
 
         <div class="total">
-          <p class="total">Your total is ${{ total }}!</p>
+          <p class="total">SUBTOTAL ${{ total }}</p>
         </div>
 
       </div>
@@ -59,7 +53,7 @@ export default {
   methods: {
     addToShoppingList({ title, price }) {
       this.shoppingList.push({ title, price });
-      this.total+=price;
+      this.total += price;
     },
   },
 };
@@ -70,20 +64,24 @@ html,
 body {
   background-color: rgb(158, 182, 177);
 }
+
 .container {
   display: flex;
 }
+
 .products {
   width: 66vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
 .shoppingList {
   position: fixed;
   text-align: center;

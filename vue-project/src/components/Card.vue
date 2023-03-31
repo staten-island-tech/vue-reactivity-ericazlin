@@ -3,7 +3,7 @@
     <h2>{{ title }}</h2>
     <img :src="getImage" alt="" />
     <p>{{ price }}</p>
-    <addButton @button-click="addToCart"/>
+    <addButton @button-click="addToCart" />
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import addButton from "./Button.vue";
 
 
 export default {
-  setup () {
+  setup() {
 
   },
   data() {
