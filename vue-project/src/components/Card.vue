@@ -3,11 +3,27 @@
     <h2>{{ title }}</h2>
     <img :src="getImage" alt="" />
     <p>{{ price }}</p>
+    <addButton @button-click="addToCart"/>
   </div>
 </template>
 
 <script>
+import addButton from "./Button.vue";
+
+
 export default {
+  setup () {
+
+  },
+  data() {
+    return {
+    };
+  },
+  methods: {
+    addToCart() {
+      this.$emit("add-product", { title: this.title, price: this.price });
+    },
+  },
   name: "Card",
   props: {
     title: String,
@@ -17,8 +33,11 @@ export default {
   computed: {
     getImage: function () {
       return this.image;
-    }
-  }
+    },
+  },
+  components: {
+    addButton,
+  },
 };
 </script>
 
