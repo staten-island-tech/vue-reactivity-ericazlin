@@ -41,10 +41,10 @@
           <p class="productAndPrice" v-for="product in shoppingList" :key="product.title">
             {{ product.title }} - ${{ product.price }} x {{ product.count }}
           </p>
-        </div> 
+        </div>
 
         <div class="total">
-          <p class="total">Your total is ${{ total }}!</p>
+          <p class="total">SUBTOTAL ${{ total }}</p>
         </div>
 
       </div>
@@ -97,20 +97,24 @@ html,
 body {
   background-color: rgb(158, 182, 177);
 }
+
 .container {
   display: flex;
 }
+
 .products {
   width: 66vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
 .shoppingList {
   position: fixed;
   text-align: center;
