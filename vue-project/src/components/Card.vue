@@ -3,28 +3,23 @@
     <h2>{{ title }}</h2>
     <img :src="getImage" alt="" />
     <p>{{ price }}</p>
-    <addButton @button-click="addToCart"/>
+    <addButton @button-click="addToCart()"/>
   </div>
 </template>
 
 <script>
-import addButton from "./Button.vue";
+import addButton from "./addButton.vue";
 
 
 export default {
-  setup () {
+  name: "Card",
 
-  },
-  data() {
-    return {
-    };
-  },
   methods: {
     addToCart() {
       this.$emit("add-product", { title: this.title, price: this.price });
     },
   },
-  name: "Card",
+  
   props: {
     title: String,
     price: Number,

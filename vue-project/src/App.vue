@@ -8,13 +8,29 @@
           </div>
         </div>
 
+        <div class="filters">
+          <button @click="filter(`exists`)">everything</button>
+          <button @click="filter(`food`)">filter food</button>
+          <button @click="filter(`frozen`)">filter frozen</button>
+          <button @click="filter(`snack`)">filter snack</button>
+          <button @click="filter(`fresh`)">filter fresh</button>
+          <button @click="filter(`chemicals`)">filter chemicals</button>
+          <button @click="filter(`hotFood`)">filter hot food</button>
+          <button @click="filter(`carParts`)">filter car parts</button>
+          <button @click="filter(`drinks`)">filter drinks</button>
+          <button @click="filter(`coldFood`)">filter cold food</button>
+          <button @click="filter(`candy`)">filter candy</button>
+          <button @click="filter(`baked`)">filter baked</button>
+        </div>
+
         <div class="cards">
           <Card
-            v-for="product in products"
+            v-for="product in filteredProducts"
             :key="product.title"
             :title="product.title"
             :price="product.price"
             :image="product.image"
+            :amount="product.amount"
             @add-product="addToShoppingList"
           />
         </div>
@@ -23,7 +39,7 @@
 
         <div class="prices">
           <p class="productAndPrice" v-for="product in shoppingList" :key="product.title">
-          {{ product.title }} - ${{ product.price }}
+            {{ product.title }} - ${{ product.price }} x {{ product.count }}
           </p>
         </div> 
 
@@ -37,7 +53,7 @@
 </template>
 
 <script>
-import addButton from "./components/Button.vue";
+import addButton from "./components/addButton.vue";
 import Card from "./components/Card.vue";
 import { products } from "../src/assets/products";
 
@@ -46,6 +62,7 @@ export default {
   data() {
     return {
       products,
+      filteredProducts: products,
       shoppingList: [],
       total: 0,
     };
@@ -57,9 +74,19 @@ export default {
   },
 
   methods: {
+    filter(productAttr) {
+      this.filteredProducts = ((products.filter(product => product[productAttr] == true)))
+    },
+
     addToShoppingList({ title, price }) {
-      this.shoppingList.push({ title, price });
-      this.total+=price;
+      const existingProduct = this.shoppingList.find(product => product.title === title);
+
+      if (existingProduct) {
+        existingProduct.count++;
+      } else {
+        this.shoppingList.push({ title, price, count: 1 });
+      }
+      this.total += price;
     },
   },
 };
