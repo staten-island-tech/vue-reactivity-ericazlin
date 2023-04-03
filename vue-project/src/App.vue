@@ -40,10 +40,13 @@
         </div>
 
         <div class="container container__prices">
-          <p class="text text__items" v-for="product in shoppingList" :key="product.title">
+          <p
+            class="text text__items"
+            v-for="product in shoppingList"
+            :key="product.title"
+          >
             {{ product.title }} - ${{ product.price }} x {{ product.quantity }}
           </p>
-          
         </div>
 
         <div class="container container__total">
@@ -51,9 +54,8 @@
         </div>
 
         <button @click="clearCart" class="button button__cart">
-            Clear Cart
+          Clear Cart
         </button>
-
       </div>
     </div>
   </main>
@@ -63,7 +65,6 @@
 import addButton from "./components/addButton.vue";
 import Card from "./components/Card.vue";
 import { products } from "../src/assets/products";
-
 
 export default {
   data() {
@@ -82,37 +83,65 @@ export default {
 
   methods: {
     filter(productAttr) {
-      this.filteredProducts = ((products.filter(product => product[productAttr] == true)))
+      this.filteredProducts = products.filter(
+        (product) => product[productAttr] == true
+      );
     },
 
     addToCart({ title, price, quantity }) {
-      const existingProduct = this.shoppingList.find(product => product.title === title);
+      const existingProduct = this.shoppingList.find(
+        (product) => product.title === title
+      );
 
       if (existingProduct) {
-        existingProduct.quantity+=quantity;
+        existingProduct.quantity += quantity;
       } else {
         this.shoppingList.push({ title, price, quantity });
       }
-      this.total += price*quantity;
+      this.total += price * quantity;
 
-      console.log(existingProduct)
+      console.log(existingProduct);
     },
     clearCart() {
-      this.shoppingList = []
+      this.shoppingList = [];
     },
   },
 };
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   background-color: rgb(158, 182, 177);
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-.text__heading {
+.text__heading-title {
   font-size: 30px;
+  margin: 5vh 0 2vh 0;
+}
+
+.text__heading-cart {
+  font-size: 50px;
+  margin-top: 5vh;
+}
+
+.button__cart {
+  width: 10vw;
+  height: 3vh;
+
+  background-color: rgb(152, 211, 198);
+  margin: 2vh 5vw;
+}
+
+.button__cart:active {
+  background-color: rgb(158, 182, 177);
 }
 
 .container__whole {
@@ -127,13 +156,30 @@ body {
   align-items: center;
 }
 
+.container__buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.container__buttons button {
+  width: 10vw;
+  height: 3vh;
+
+  background-color: rgb(152, 211, 198);
+  margin: 3px 5vw;
+}
+
+.container__buttons button:active {
+  background-color: rgb(158, 182, 177);
+}
+
 .container__cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.container__cart  {
+.container__cart {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -141,7 +187,7 @@ body {
   width: 32vw;
   height: 90%;
 
-  top:5%;
+  top: 5%;
   bottom: 5%;
   left: 66vw;
 
@@ -150,11 +196,14 @@ body {
   border: 1px black solid;
 }
 .container__prices {
-  height: 80%;
+  height: 75%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
+}
+.container__total {
+  font-size: 20px;
 }
 </style>
