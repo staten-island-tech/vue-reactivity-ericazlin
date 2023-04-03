@@ -104,6 +104,7 @@ export default {
     },
     clearCart() {
       this.shoppingList = [];
+      this.total = 0;
     },
   },
 };
