@@ -16,7 +16,7 @@ export default {
 
   methods: {
     addToCart() {
-      this.$emit("add-product", { title: this.title, price: this.price });
+      this.$emit("addToCart", { title: this.title, price: this.price });
     },
   },
   

@@ -1,14 +1,14 @@
 <template>
   <main>
-    <div class="container">
-      <div class="products">
-        <div class="texts">
+    <div class="container container__whole">
+      <div class="container container__products">
+        <div class="text text__heading text__heading-title">
           <div>
             <h1>jeebee's gas station online pre-order</h1>
           </div>
         </div>
 
-        <div class="filters">
+        <div class="container container__buttons">
           <button @click="filter(`exists`)">everything</button>
           <button @click="filter(`food`)">filter food</button>
           <button @click="filter(`frozen`)">filter frozen</button>
@@ -23,28 +23,30 @@
           <button @click="filter(`baked`)">filter baked</button>
         </div>
 
-        <div class="cards">
+        <div class="container container__cards">
           <Card
             v-for="product in filteredProducts"
             :key="product.title"
             :title="product.title"
             :price="product.price"
             :image="product.image"
-            :amount="product.amount"
-            @add-product="addToShoppingList"
+            @addToCart="addToCart"
           />
         </div>
       </div>
-      <div class="shoppingList">
+      <div class="container container__cart">
+        <div class="text text__heading text__heading-cart">
+          <p>SHOPPING CART</p>
+        </div>
 
-        <div class="prices">
-          <p class="productAndPrice" v-for="product in shoppingList" :key="product.title">
+        <div class="container container__prices">
+          <p class="text text__items" v-for="product in shoppingList" :key="product.title">
             {{ product.title }} - ${{ product.price }} x {{ product.count }}
           </p>
         </div>
 
-        <div class="total">
-          <p class="total">SUBTOTAL ${{ total }}</p>
+        <div class="container container__total">
+          <p class="text text__total">TOTAL: ${{ total }}</p>
         </div>
 
       </div>
@@ -78,7 +80,7 @@ export default {
       this.filteredProducts = ((products.filter(product => product[productAttr] == true)))
     },
 
-    addToShoppingList({ title, price }) {
+    addToCart({ title, price }) {
       const existingProduct = this.shoppingList.find(product => product.title === title);
 
       if (existingProduct) {
@@ -96,29 +98,53 @@ export default {
 html,
 body {
   background-color: rgb(158, 182, 177);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.container {
+.text__heading {
+  font-size: 30px;
+}
+
+.container__whole {
   display: flex;
 }
 
-.products {
+.container__products {
   width: 66vw;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.cards {
+.container__cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.shoppingList {
+.container__cart  {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   text-align: center;
-  width: 34vw;
+  width: 32vw;
+  height: 90%;
+
+  top:5%;
+  bottom: 5%;
   left: 66vw;
+
+  align-items: center;
+
+  border: 1px black solid;
+}
+.container__prices {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
 }
 </style>
