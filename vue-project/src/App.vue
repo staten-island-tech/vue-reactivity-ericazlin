@@ -41,13 +41,18 @@
 
         <div class="container container__prices">
           <p class="text text__items" v-for="product in shoppingList" :key="product.title">
-            {{ product.title }} - ${{ product.price }} x {{ product.count }}
+            {{ product.title }} - ${{ product.price }} x {{ product.quantity }}
           </p>
+          
         </div>
 
         <div class="container container__total">
           <p class="text text__total">TOTAL: ${{ total }}</p>
         </div>
+
+        <button @click="clearCart" class="button button__cart">
+            Clear Cart
+        </button>
 
       </div>
     </div>
@@ -80,15 +85,20 @@ export default {
       this.filteredProducts = ((products.filter(product => product[productAttr] == true)))
     },
 
-    addToCart({ title, price }) {
+    addToCart({ title, price, quantity }) {
       const existingProduct = this.shoppingList.find(product => product.title === title);
 
       if (existingProduct) {
-        existingProduct.count++;
+        existingProduct.quantity+=quantity;
       } else {
-        this.shoppingList.push({ title, price, count: 1 });
+        this.shoppingList.push({ title, price, quantity });
       }
-      this.total += price;
+      this.total += price*quantity;
+
+      console.log(existingProduct)
+    },
+    clearCart() {
+      this.shoppingList = []
     },
   },
 };

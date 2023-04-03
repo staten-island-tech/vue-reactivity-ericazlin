@@ -3,6 +3,7 @@
     <h2>{{ title }}</h2>
     <img :src="getImage" alt="" />
     <p>${{ price }}</p>
+    <input type="number" v-model="message" placeholder="type your quantity">
     <addButton @button-click="addToCart()"/>
   </div>
 </template>
@@ -14,9 +15,27 @@ import addButton from "./addButton.vue";
 export default {
   name: "Card",
 
+  data () {
+    return {
+      message: "",
+    }
+  },
+
   methods: {
     addToCart() {
-      this.$emit("addToCart", { title: this.title, price: this.price });
+      console.log(this.message);
+      if (this.message <= 0) {
+        this.message = ""
+      }
+      else if (this.message == "") {
+        this.$emit("addToCart", { title: this.title, price: this.price, quantity: 1 });
+        this.message = ""
+      }
+      else {
+        this.$emit("addToCart", { title: this.title, price: this.price, quantity: this.message });
+        this.message = ""
+      }
+      
     },
   },
   
