@@ -125,6 +125,7 @@ body {
 .text__heading-title {
   font-size: 30px;
   margin: 5vh 0 2vh 0;
+  margin-left: 1.4rem;
 }
 
 .text__heading-cart {
